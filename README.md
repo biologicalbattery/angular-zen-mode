@@ -62,11 +62,3 @@ If `angular-zen-mode.UseBuiltInZen` is `true` and you trigger the `angular-zen-m
 ### 1.0.0
 
 Initial release of Angular Zen Mode
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
