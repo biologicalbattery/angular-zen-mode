@@ -1,0 +1,166 @@
+{
+	"name": "angular-zen-mode",
+	"displayName": "Angular-Zen-Mode",
+	"description": "Allows you to more efficiently program in angular by creating a editor configuration which opens the template, component, and style file all together.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:**/angular.json"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "angular-zen-mode.activateAngularZen",
+				"title": "Activate Angular Zen Mode",
+				"enablement": "resourceFilename =~ /.component./",
+				"category": "Angular Zen Mode"
+			},
+			{
+				"command": "angular-zen-mode.nextEditor",
+				"title": "Focus Next Editor",
+				"enablement": "angularZenMode.inZenMode",
+				"category": "Angular Zen Mode"
+			},
+			{
+				"command": "angular-zen-mode.previousEditor",
+				"title": "Focus Previous Editor",
+				"enablement": "angularZenMode.inZenMode",
+				"category": "Angular Zen Mode"
+			},
+			{
+				"command": "angular-zen-mode.switchToComponent",
+				"title": "Switch To Component TS File",
+				"enablement": "angularZenMode.inZenMode",
+				"category": "Angular Zen Mode"
+			},
+			{
+				"command": "angular-zen-mode.switchToTemplate",
+				"title": "Switch To Template File",
+				"enablement": "angularZenMode.inZenMode",
+				"category": "Angular Zen Mode"
+			},
+			{
+				"command": "angular-zen-mode.switchToStyle",
+				"title": "Switch To Style File",
+				"enablement": "angularZenMode.inZenMode",
+				"category": "Angular Zen Mode"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Angular Zen Mode",
+				"properties": {
+					"angular-zen-mode.StyleFormats": {
+						"type": "array",
+						"default": [
+							".css",
+							".scss",
+							".sass",
+							".less"
+						],
+						"description": "The extentions which angular-zen-mode should search to find a style file for the specific component",
+						"title": "Component Style File Extentions"
+					},
+					"angular-zen-mode.TemplateFormats": {
+						"type": "array",
+						"default": [
+							".html"
+						],
+						"description": "The extentions which angular-zen-mode should search to find a template for the specific component",
+						"title": "Component Template File Extentions"
+					},
+					"angular-zen-mode.WatchMode": {
+						"type": "boolean",
+						"default": false,
+						"description": "If true, then the extention will detect when a new compontent ts/template/style file is open and automatically open the other two files in the zen mode",
+						"title": "Watch Mode"
+					},
+					"angular-zen-mode.ZoomOutCount": {
+						"type": "integer",
+						"default": 0,
+						"description": "The amount of times the extention will zoom out by 20% when entering zen mode",
+						"title": "Zoom Out Count"
+					},
+					"angular-zen-mode.UseBuiltInZen": {
+						"type": "boolean",
+						"default": false,
+						"description": "Whether to use the built-in zen mode for VS code when entering Angular Zen Mode, if true, then instead of simply hiding the sidebar, the extention will toggle VS Code's built in zen mode.",
+						"title": "Use Built-in Zen Mode"
+					},
+					"angular-zen-mode.ThirdFileBelow": {
+						"type": "boolean",
+						"default": true,
+						"description": "Whether to open the third file (ts/template/style) in an editor below the second file. If false, then the third file will be opened in a column to the side instead of underneath",
+						"title": "Open Third Editor Below"
+					}
+				}
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceFilename =~ /.component./",
+					"command": "angular-zen-mode.activateAngularZen"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "angular-zen-mode.activateAngularZen",
+				"key": "alt+z alt+z",
+				"when": "resourceFilename =~ /.component./"
+			},
+			{
+				"command": "angular-zen-mode.nextEditor",
+				"key": "alt+z alt+l",
+				"when": "angularZenMode.inZenMode"
+			},
+			{
+				"command": "angular-zen-mode.previousEditor",
+				"key": "alt+z alt+p",
+				"when": "angularZenMode.inZenMode"
+			},
+			{
+				"command": "angular-zen-mode.switchToTemplate",
+				"key": "alt+z alt+k",
+				"when": "angularZenMode.inZenMode"
+			},
+			{
+				"command": "angular-zen-mode.switchToComponent",
+				"key": "alt+z alt+m",
+				"when": "angularZenMode.inZenMode"
+			},
+			{
+				"command": "angular-zen-mode.switchToStyle",
+				"key": "alt+z alt+o",
+				"when": "angularZenMode.inZenMode"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.58.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
