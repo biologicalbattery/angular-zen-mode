@@ -18,7 +18,7 @@
 		"configuration",
 		"efficiency"
 	],
-	"icon": "https://res.cloudinary.com/ansaardollie/image/upload/v1627342492/angular-zen-mode/logo/logo.png",
+	"icon": "assets/logo.png",
 	"galleryBanner": {
 		"color": "#C0D3E9",
 		"theme": "dark"
