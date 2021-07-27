@@ -2,11 +2,17 @@
 
 Angular Zen Mode is an extension that allows angular developers to streamline their developer experience when programming in angular-specific files (component code/template/style).
 
+## Support
+
+If you like the extenstion and it's improved your life feel free to donate using the link below. It's going towards the caffeine-fuel ☕ for my dev projects 😉
+
+[![Donation Badge](https://img.shields.io/badge/Donate-PayPal-red "Donate via Paypal")](https://www.paypal.com/paypalme/ADollie)
+
 ## Features
 
 - ### Angular Zen Mode
 
-Use the command `angular-zen-mode.activateAngularZen` (default shortcut `alt+z alt+z`) to activate the Angular Zen Mode.
+Use the command `angular-zen-mode.activateAngularZen` (default shortcut `alt+z alt+z`) to activate the Angular Zen Mode. This feature is also available in the context menu of the explorer when right-clicking any angular component file.
 
 When this command is run and an angular component file (code/template/style) is currently active in an editor, then the extension will open up two more editor groups with the other two associated component files in them, it will also close all other editor groups except the active group.
 
@@ -17,6 +23,24 @@ However the extension can be configured to open the third editor group in a colu
 By default it will also close the sidebar but can be configured to toggle VS Code's built zen mode instead.
 
 Can be configured to also zoom out when entering zen mode.
+
+##### Usage (Click GIFs to view larger versions)
+
+###### Angular Zen Mode using Command Palette
+
+[![Zen Mode using Command Palette](https://res.cloudinary.com/ansaardollie/image/upload/v1627339638/angular-zen-mode/screencap/CommandPalette.gif "Zen Mode using Command Palette")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339638/angular-zen-mode/screencap/CommandPalette.gif)
+
+###### Angular Zen Mode in Full Screen (via Built-in Zen Mode)
+
+[![Zen Mode in Full Screen](https://res.cloudinary.com/ansaardollie/image/upload/v1627339626/angular-zen-mode/screencap/BuiltIn.gif "Zen Mode with Built-In Zen Mode")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339626/angular-zen-mode/screencap/BuiltIn.gif)
+
+###### Angular Zen Mode using Keyboard Shortcut
+
+[![Zen Mode using Keyboard Shortcut](https://res.cloudinary.com/ansaardollie/image/upload/v1627339626/angular-zen-mode/screencap/KB.gif "Zen Mode using Keyboard Shortcut")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339626/angular-zen-mode/screencap/KB.gif)
+
+###### Angular Zen Mode using Context Menu
+
+[![Zen Mode using Context Menu](https://res.cloudinary.com/ansaardollie/image/upload/v1627339630/angular-zen-mode/screencap/Context.gif "Zen Mode using Keyboard Shortcut")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339630/angular-zen-mode/screencap/Context.gif)
 
 - ### Quickly Switch Component Files
 
@@ -30,6 +54,12 @@ Use the following commands to quickly switch the main editor, one with most spac
 | Template(`.html`)                      | `angular-zen-mode.switchToTemplate`  | `alt+z alt+k` |
 | Style (`.css`/`.scss`/`.sass`/`.less`) | `angular-zen-mode.switchToStyle`     | `alt+z alt+o` |
 
+##### Usage (Click GIF to view larger version)
+
+###### Switching Between Component Files
+
+[![Switching Between Component Files](https://res.cloudinary.com/ansaardollie/image/upload/v1627339636/angular-zen-mode/screencap/Switching.gif "Switching Between Component Files")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339636/angular-zen-mode/screencap/Switching.gif)
+
 You can also use the `angular-zen-mode.nextEditor` and `angular-zen-mode.previousEditor` commands to cycle through the editors, with shortcuts `alt+z alt+l` and `alt+z alt+p` respectively.
 
 - ### Automatically Open All Component Files
@@ -39,6 +69,12 @@ This feature is disabled by default. Set `angular-zen-mode.WatchMode` to `true` 
 When the workspace is in Angular Zen Mode, which is three editor groups open with the active editor in each group displaying one of the angular component files, this feature will automatically detect whenever an Angular component file (code/template/style) is opened in the first editor group, and will then open and display the other associated component files in the other editor groups.
 
 This feature is useful when programming in all component files of many components in one session.
+
+##### Usage (Click GIF to view larger version)
+
+###### Watch Mode in action
+
+[![Watch Mode with Angular Zen Mode](https://res.cloudinary.com/ansaardollie/image/upload/v1627339639/angular-zen-mode/screencap/Watch.gif "Watch Mode with Angular Zen Mode")](https://res.cloudinary.com/ansaardollie/image/upload/v1627339639/angular-zen-mode/screencap/Watch.gif)
 
 ## Extension Settings
 
@@ -62,3 +98,13 @@ If `angular-zen-mode.UseBuiltInZen` is `true` and you trigger the `angular-zen-m
 ### 1.0.0
 
 Initial release of Angular Zen Mode
+
+## License
+
+MIT No Attribution
+
+Copyright 2021 Ansaar Dollie
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

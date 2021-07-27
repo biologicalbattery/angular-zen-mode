@@ -1,16 +1,40 @@
 {
 	"name": "angular-zen-mode",
-	"displayName": "Angular-Zen-Mode",
-	"description": "Allows you to more efficiently program in angular by creating a editor configuration which opens the template, component, and style file all together.",
-	"version": "0.0.1",
+	"displayName": "Angular Zen Mode",
+	"description": "Angular Zen Mode is an extension that streamlines angular developers' development experience when programming in angular-specific files (component code/template/style). It does this by creating a workspace editor group configuration which opens the component code, template, and style file all together.",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.58.0"
 	},
+	"license": "MIT No Attribution",
+	"publisher": "dolliecollective",
 	"categories": [
-		"Other"
+		"Programming Languages"
 	],
+	"keywords": [
+		"angular",
+		"zen",
+		"workspace",
+		"configuration",
+		"efficiency"
+	],
+	"icon": "https://res.cloudinary.com/ansaardollie/image/upload/v1627342492/angular-zen-mode/logo/logo.png",
+	"galleryBanner": {
+		"color": "#C0D3E9",
+		"theme": "dark"
+	},
+	"homepage": "https://github.com/ansaardollie/angular-zen-mode/blob/main/README.md",
+	"bugs": {
+		"url": "https://github.com/ansaardollie/angular-zen-mode/issues",
+		"email": "ansaard123@gmail.com"
+	},
+	"repository": {
+		"url": "https://github.com/ansaardollie/angular-zen-mode.git",
+		"type": "git"
+	},
 	"activationEvents": [
-		"workspaceContains:**/angular.json"
+		"workspaceContains:**/angular.json",
+		"onCommand:angular-zen-mode.activateAngularZen"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -35,19 +59,19 @@
 			},
 			{
 				"command": "angular-zen-mode.switchToComponent",
-				"title": "Switch To Component TS File",
+				"title": "Switch To Component Code File",
 				"enablement": "angularZenMode.inZenMode",
 				"category": "Angular Zen Mode"
 			},
 			{
 				"command": "angular-zen-mode.switchToTemplate",
-				"title": "Switch To Template File",
+				"title": "Switch To Component Template File",
 				"enablement": "angularZenMode.inZenMode",
 				"category": "Angular Zen Mode"
 			},
 			{
 				"command": "angular-zen-mode.switchToStyle",
-				"title": "Switch To Style File",
+				"title": "Switch To Component Style File",
 				"enablement": "angularZenMode.inZenMode",
 				"category": "Angular Zen Mode"
 			}
@@ -64,27 +88,27 @@
 							".sass",
 							".less"
 						],
-						"description": "The extentions which angular-zen-mode should search to find a style file for the specific component",
-						"title": "Component Style File Extentions"
+						"description": "The file extensions which angular-zen-mode should search to find a style file for the specific component",
+						"title": "Component Style File Extensions"
 					},
 					"angular-zen-mode.TemplateFormats": {
 						"type": "array",
 						"default": [
 							".html"
 						],
-						"description": "The extentions which angular-zen-mode should search to find a template for the specific component",
-						"title": "Component Template File Extentions"
+						"description": "The file extensions which angular-zen-mode should search to find a template file for the specific component",
+						"title": "Component Template File Extensions"
 					},
 					"angular-zen-mode.WatchMode": {
 						"type": "boolean",
 						"default": false,
-						"description": "If true, then the extention will detect when a new compontent ts/template/style file is open and automatically open the other two files in the zen mode",
+						"description": "If true, then angular-zen-mode will detect when a new compontent ts/template/style file is open and automatically open the other two files in the zen mode",
 						"title": "Watch Mode"
 					},
 					"angular-zen-mode.ZoomOutCount": {
 						"type": "integer",
 						"default": 0,
-						"description": "The amount of times the extention will zoom out by 20% when entering zen mode",
+						"description": "The amount of times angular-zen-mode will zoom out by 20% when entering zen mode",
 						"title": "Zoom Out Count"
 					},
 					"angular-zen-mode.UseBuiltInZen": {
@@ -106,7 +130,8 @@
 			"explorer/context": [
 				{
 					"when": "resourceFilename =~ /.component./",
-					"command": "angular-zen-mode.activateAngularZen"
+					"command": "angular-zen-mode.activateAngularZen",
+					"group": "2_workspace"
 				}
 			]
 		},

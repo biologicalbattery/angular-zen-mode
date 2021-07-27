@@ -16,10 +16,6 @@ let styleFormats = config<string[]>("StyleFormats") || [
 	".sass",
 ];
 let templateFormats = config<string[]>("TemplateFormats") || [".html"];
-let watchMode = config<boolean>("WatchMode");
-let zoomCount = config<number>("ZoomOutCount") || 0;
-let useBuiltInZen = config<boolean>("UseBuiltInZen");
-let thirdFileBelow = config<boolean>("ThirdFileBelow");
 
 export const ZEN_MODE_CONTEXT = "angularZenMode.inZenMode";
 // this method is called when your extension is activated
@@ -27,6 +23,7 @@ export const ZEN_MODE_CONTEXT = "angularZenMode.inZenMode";
 export async function activate(context: vscode.ExtensionContext) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
+	console.log("angular-zen-mode Extenstion Activated");
 
 	context.environmentVariableCollection.replace("setZenWatcher", "false");
 
@@ -74,6 +71,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
 				await zen(file, true);
 
+				let useBuiltInZen = config<boolean>("UseBuiltInZen");
+
 				if (useBuiltInZen) {
 					await vscode.commands.executeCommand(
 						"workbench.action.toggleZenMode"
@@ -82,6 +81,7 @@ export async function activate(context: vscode.ExtensionContext) {
 					await vscode.commands.executeCommand("workbench.action.closeSidebar");
 				}
 
+				let zoomCount = config<number>("ZoomOutCount") || 0;
 				for (let i = 0; i < zoomCount; i++) {
 					await vscode.commands.executeCommand("editor.action.fontZoomOut");
 				}
@@ -94,6 +94,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
 				const checkZenWatcher =
 					context.environmentVariableCollection.get("setZenWatcher")?.value;
+
+				let watchMode = config<boolean>("WatchMode");
 
 				if (watchMode && checkZenWatcher !== "true") {
 					context.environmentVariableCollection.replace(
@@ -337,6 +339,7 @@ export async function zen(filename: string, initial: boolean = false) {
 	}
 	await openCorrespondingFile(fileWOEX, vscode.ViewColumn.Two, ...topFormats);
 
+	let thirdFileBelow = config<boolean>("ThirdFileBelow");
 	if (initial && thirdFileBelow) {
 		await vscode.commands.executeCommand("workbench.action.newGroupBelow");
 	}
